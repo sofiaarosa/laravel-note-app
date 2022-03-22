@@ -1,1 +1,1 @@
-# Journal Project
+# Laravel Note App
