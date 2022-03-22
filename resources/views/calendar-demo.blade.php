@@ -37,7 +37,10 @@
                 />
             </div>
         </div>
-
+        <div class="fixed-action-btn">
+            <a class="btn-floating waves-effect waves-light right btn-large orange" href="{{ route('journal.add') }}"><i
+                class="material-icons">add</i></a>
+        </div>
         @livewireScripts
         @livewireCalendarScripts
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

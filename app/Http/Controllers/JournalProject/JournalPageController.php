@@ -19,4 +19,20 @@ class JournalPageController extends Controller
         $result = JournalPage::create($data);
         return redirect()->route('journal.index');
     }
+
+    public function find($id){
+        $data = JournalPage::find($id);
+        return view('event-page', compact('data'));
+    }
+
+    public function update(Request $req, $id){
+        $data = $req->all();
+        $result = JournalPage::find($id)->update($data);
+        return redirect()->route('journal.index');
+    }
+
+    public function delete($id){
+        $result = JournalPage::find($id)->delete();
+        return redirect()->route('journal.index');
+    }
 }
