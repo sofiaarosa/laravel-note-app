@@ -19,9 +19,9 @@ Route::get('/', function () {
 })->name('index');
 
 Route::view('calendar', 'calendar-demo')->name('calendar');
-Route::get('journal', 'JournalProject\JournalPageController@getAll')->name('journal.index');
-Route::get('journal/find/{id}', 'JournalProject\JournalPageController@find')->name('journal.find');
-Route::view('journal/add', 'create')->name('journal.add');
-Route::post('journal/add/save', 'JournalProject\JournalPageController@create')->name('journal.add.save');
-Route::put('journal/update/{id}', 'JournalProject\JournalPageController@update')->name('journal.update');
-Route::get('journal/delete/{id}', 'JournalProject\JournalPageController@delete')->name('journal.delete');
+Route::get('notes', 'NotesController@getAll')->name('notes.index');
+Route::get('notes/find/{id}', 'NotesController@find')->name('notes.find');
+Route::view('notes/add', 'create')->name('notes.add');
+Route::post('notes/add/save', 'NotesController@create')->name('notes.add.save');
+Route::put('notes/update/{id}', 'NotesController@update')->name('notes.update');
+Route::get('notes/delete/{id}', 'NotesController@delete')->name('notes.delete');

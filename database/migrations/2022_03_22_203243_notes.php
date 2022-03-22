@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class JournalPage extends Migration
+class Notes extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,12 @@ class JournalPage extends Migration
     public function up()
     {
         //
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('notes');
+            $table->string('cathegory');
             $table->string('body');
+            $table->string('color');
             $table->timestamps();
         });
     }

@@ -1,4 +1,7 @@
-<div class="event" onclick="window.location = '{{route('journal.find', $event['id'])}}'">
-<b>{{$event['title']}}</b>
-<p>{{$event['description']}}</p>
+<div class="card {{$event['color']}}" onclick="window.location = '{{ route('notes.find', $event['id']) }}'">
+    <div class="content">
+        <span class="card-title">{{ $event['title'] }}</span>
+        <p>{{ $event['description'] }}</p>
+    </div>
 </div>
+

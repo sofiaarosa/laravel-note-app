@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\JournalProject;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class JournalPage extends Model
+class Note extends Model
 {
     //
-    protected $table = 'pages';
+    protected $table = 'notes';
     protected $fillable = [
-        'title', 'notes', 'body'
+        'title', 'cathegory', 'body', 'color'
     ];
 
     public $incrementing = true;

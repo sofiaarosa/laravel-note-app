@@ -16,7 +16,7 @@
     @include('materialize.layout.navbar')
     <div class="flex-center full-height">
         <div class="container">
-            <form class="col s12" action="{{ route('journal.update', $data['id']) }}" method="POST">
+            <form class="col s12" action="{{ route('notes.update', $data['id']) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <div class="row">
@@ -27,12 +27,12 @@
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">textsms</i>
-                        <input type="text" id="autocomplete-input" class="autocomplete" name="notes"
+                        <input type="text" id="autocomplete-input" class="autocomplete" name="cathegory"
                             value="{{ $data['notes'] }}">
-                        <label for="autocomplete-input">Note</label>
+                        <label for="autocomplete-input">Cathegory</label>
                     </div>
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea" name="body">
+                        <textarea id="textarea1" class="materialize-textarea" name="body" data-length="255" maxlength="255">
                             {{ $data['body'] }}
                         </textarea>
                         <label for="textarea1">Body</label>
@@ -41,7 +41,7 @@
                         <i class="material-icons right">create</i>
                     </button>
                     <a class="btn waves-effect waves-light red"
-                        onclick="window.location='{{ route('journal.delete', $data['id']) }}'">
+                        onclick="window.location='{{ route('notes.delete', $data['id']) }}'">
                         Delete
                         <i class="material-icons right">delete</i>
                     </a>
@@ -51,4 +51,9 @@
 
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('textarea#textarea1').characterCounter();
+        });
+    </script>
 </body>

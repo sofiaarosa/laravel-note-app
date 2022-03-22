@@ -4,33 +4,26 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Asantibanez\LivewireCalendar\LivewireCalendar;
+use App\Models\Note;
 use Illuminate\Support\Collection;
-use App\Models\JournalProject\JournalPage;
-use Illuminate\Support\Carbon;
 
-// change the extends from Component to LivewireCalendar
-class JournalCalendarView extends LivewireCalendar
+class NotesCalendar extends LivewireCalendar
 {
-    //Delete the default function 'render'
-    //Create function event() that returns a collection
     public function events(): Collection
     {
-        return JournalPage::query()
+        return Note::query()
         // ->whereDate('created_at', '>=', $this->gridStartsAt)
         // ->whereDate('created_at', '<=', $this->gridEndsAt)
         ->get()
-        ->map(function (JournalPage $model) {
+        ->map(function (Note $model) {
             return [
                 'id' => $model->id,
                 'title' => $model->title,
-                'description' => $model->notes,
+                'description' => $model->cathegory,
                 'body' => $model->body,
+                'color' =>$model->color,
                 'date' => $model->created_at,
             ];
         });
-    }
-
-    public function hello(){
-        echo "hello!";
     }
 }

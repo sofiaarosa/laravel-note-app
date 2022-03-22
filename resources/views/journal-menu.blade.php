@@ -5,7 +5,9 @@
         .card.horizontal {
             height: 200px;
         }
-
+        .card.horizontal .card-content{
+            overflow: hidden;
+        }
     </style>
 </head>
 
@@ -18,7 +20,7 @@
             <div class="row">
                 @foreach ($data as $page)
                     <div class="col s12 m6">
-                        <div class="card horizontal">
+                        <div class="card horizontal {{$page['color']}}">
                             {{-- <div class="card-image">
                           <img src="https://lorempixel.com/100/190/nature/6">
                         </div> --}}
@@ -28,14 +30,13 @@
                                     <p>{{ $page->body }}</p>
                                 </div>
                                 <div class="card-action">
-                                    <a class="btn-floating waves-effect waves-light" href="{{route('journal.find', $page['id'])}}">
-                                        <i class="material-icons right">create</i>
-                                    </a>
                                     <div class="chip">
-                                        {{ $page->notes }}
+                                        {{ $page->cathegory }}
                                     </div>
                                     <span>{{ App\Http\Controllers\Controller::createDate($page->created_at) }}</span>
-
+                                    <a class="btn-floating right waves-effect waves-light" href="{{route('notes.find', $page['id'])}}">
+                                        <i class="material-icons right">create</i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +44,7 @@
                 @endforeach
             </div>
             <div class="fixed-action-btn">
-                <a class="btn-floating waves-effect waves-light right btn-large orange" href="{{ route('journal.add') }}"><i
+                <a class="btn-floating waves-effect waves-light right btn-large orange" href="{{ route('notes.add') }}"><i
                     class="material-icons">add</i></a>
             </div>
         </div>

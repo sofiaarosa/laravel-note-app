@@ -18,9 +18,6 @@
             padding: 10px;
         }
 
-        .event{
-            background: pink;
-        }
     </style>
 
     @livewireStyles
@@ -31,14 +28,14 @@
         @include('materialize.layout.navbar')
         <div class="flex-center">
             <div class="half-width">
-                <livewire:journal-calendar-view
+                <livewire:notes-calendar
                 before-calendar-view="calendar.calendar-header"
                 event-view="calendar.event-view"
                 />
             </div>
         </div>
         <div class="fixed-action-btn">
-            <a class="btn-floating waves-effect waves-light right btn-large orange" href="{{ route('journal.add') }}"><i
+            <a class="btn-floating waves-effect waves-light right btn-large orange" href="{{ route('notes.add') }}"><i
                 class="material-icons">add</i></a>
         </div>
         @livewireScripts

@@ -28,12 +28,12 @@
             <div class="section no-pad-bot" id="index-banner">
                 <div class="container">
                     <br><br>
-                    <h1 class="header center orange-text">Journal Project</h1>
+                    <h1 class="header center orange-text">Laravel PostIts</h1>
                     <div class="row center">
                         <h5 class="header col s12 light">A project to put <b>Laravel</b>, <b>Laravel Livewire</b> and
                             <b>MaterializeJS</b> together
                         </h5>
-                        <p class="col s12">Journal Project is a simple CRUD made with Laravel Framework and a
+                        <p class="col s12">Laravel PostIts Project is a simple CRUD made with Laravel Framework and a
                             responsive
                             frontend made with Materialize, applied in the Blade Views. Also, the journal has the Calendar
                             View,
@@ -49,11 +49,11 @@
                     <div class="row">
                         <div class="col s12 m4 push-m4">
                             <div class="icon-block">
-                                <h2 class="center light-blue-text"><i class="material-icons">book</i></h2>
-                                <h5 class="center">Dear Diary,</h5>
+                                <h2 class="center light-blue-text"><i class="material-icons">note</i></h2>
+                                <h5 class="center">Post Its</h5>
 
-                                <p class="light">This is a journal for small toughths. You can see all the data in
-                                    cards, organized in a grid layout or in a Calendar View, since it is organized by date.
+                                <p class="light">
+                                    Notes organized by the date they were created on database and personalized with colors, picked by the user.
                                 </p>
                             </div>
                         </div>
