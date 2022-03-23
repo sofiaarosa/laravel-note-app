@@ -14,4 +14,11 @@ class Controller extends BaseController
     public static function createDate($str){
         return Carbon::create($str)->format('d/m/Y');
     }
+
+    public static function isColorSelected($color, $colorClass){
+        $flag = strpos($colorClass, $color);
+        if($flag === false)
+            return '';
+        else return 'selected';
+    }
 }

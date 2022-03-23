@@ -37,7 +37,7 @@
                             {{-- <label>Color</label> --}}
                         </div>
                         <div class="col s1">
-                            <div class="color circle selected yellow lighten-1" id="yellow"></div>
+                            <div class="color circle yellow lighten-1" id="yellow"></div>
                         </div>
                         <div class="col s1">
                             <div class="color circle orange lighten-1" id="orange"></div>

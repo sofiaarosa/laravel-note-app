@@ -34,20 +34,21 @@
                     <div class="row">
                         <div class="col s1 offset-s4">
                             <i class="material-icons">color_lens</i>
-                            <input type="hidden" name="color" id="color-input" value="yellow lighten-1">
+                            <input type="hidden" name="color" id="color-input" value="{{ $data['color'] }}">
                             {{-- <label>Color</label> --}}
                         </div>
                         <div class="col s1">
-                            <div class="color circle selected yellow lighten-1" id="yellow"></div>
+                            <div class="color circle yellow lighten-1 {{ App\Http\Controllers\Controller::isColorSelected('yellow', $data['color']) }}" id="yellow"></div>
                         </div>
                         <div class="col s1">
-                            <div class="color circle orange lighten-1" id="orange"></div>
+                            <div class="color circle orange lighten-1 {{ App\Http\Controllers\Controller::isColorSelected('orange', $data['color']) }}"
+                                id="orange"></div>
                         </div>
                         <div class="col s1">
-                            <div class="color circle pink lighten-1" id="pink"></div>
+                            <div class="color circle pink lighten-1 {{ App\Http\Controllers\Controller::isColorSelected('pink', $data['color']) }}" id="pink"></div>
                         </div>
                         <div class="col s1">
-                            <div class="color circle blue lighten-1" id="blue"></div>
+                            <div class="color circle blue lighten-1 {{ App\Http\Controllers\Controller::isColorSelected('blue', $data['color']) }}" id="blue"></div>
                         </div>
                     </div>
                     <div class="input-field col s6">
@@ -62,9 +63,7 @@
                         <label for="autocomplete-input">Cathegory</label>
                     </div>
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea" name="body" data-length="255" maxlength="255">
-                            {{ $data['body'] }}
-                        </textarea>
+                        <textarea id="textarea1" class="materialize-textarea" name="body" data-length="255" maxlength="255"></textarea>
                         <label for="textarea1">Body</label>
                     </div>
                     <button class="btn waves-effect waves-light" type="submit" name="action">Update
@@ -83,18 +82,19 @@
     </div>
     <script>
         $(document).ready(function() {
+            $('textarea#textarea1').val("{{ $data['body'] }}");
             $('textarea#textarea1').characterCounter();
         });
 
         //color selector
         let colorButtons = document.querySelectorAll(".color");
         colorButtons.forEach(element => {
-            element.addEventListener('click', ()=>{
+            element.addEventListener('click', () => {
                 selectColor(element.id);
             });
         });
 
-        function selectColor(elementID){
+        function selectColor(elementID) {
             let selectedColor = document.getElementById(elementID);
             const colorInput = document.getElementById("color-input");
             unselectColors(elementID);
@@ -103,7 +103,7 @@
             console.log(colorInput.value);
         }
 
-        function unselectColors(){
+        function unselectColors() {
             let element = document.querySelector(".color.selected");
             element.classList.remove("selected")
         }
