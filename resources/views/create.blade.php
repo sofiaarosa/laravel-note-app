@@ -37,7 +37,7 @@
                             {{-- <label>Color</label> --}}
                         </div>
                         <div class="col s1">
-                            <div class="color circle yellow lighten-1" id="yellow"></div>
+                            <div class="color circle yellow lighten-1 selected" id="yellow"></div>
                         </div>
                         <div class="col s1">
                             <div class="color circle orange lighten-1" id="orange"></div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">textsms</i>
-                        <input type="text" id="autocomplete-input" class="autocomplete" name="cathegory">
+                        <input type="text" id="autocomplete-input" class="autocomplete" autocomplete="off" name="cathegory">
                         <label for="autocomplete-input">Cathegory</label>
                     </div>
                     <div class="input-field col s12">
@@ -75,15 +75,23 @@
             $('textarea#textarea1').characterCounter();
         });
 
+        $(document).ready(function() {
+            $('input.autocomplete').autocomplete({
+                data: {
+                    {{App\Http\Controllers\NotesController::getCathegories()}}
+                }
+            });
+        });
+
         //color selector
         let colorButtons = document.querySelectorAll(".color");
         colorButtons.forEach(element => {
-            element.addEventListener('click', ()=>{
+            element.addEventListener('click', () => {
                 selectColor(element.id);
             });
         });
 
-        function selectColor(elementID){
+        function selectColor(elementID) {
             let selectedColor = document.getElementById(elementID);
             const colorInput = document.getElementById("color-input");
             unselectColors(elementID);
@@ -92,7 +100,7 @@
             console.log(colorInput.value);
         }
 
-        function unselectColors(){
+        function unselectColors() {
             let element = document.querySelector(".color.selected");
             element.classList.remove("selected")
         }

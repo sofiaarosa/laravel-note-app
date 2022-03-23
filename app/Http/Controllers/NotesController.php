@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Note;
+use Illuminate\Support\Facades\DB;
+
+use function PHPSTORM_META\type;
 
 class NotesController extends Controller
 {
@@ -28,6 +31,14 @@ class NotesController extends Controller
     public function find($id){
         $data = Note::find($id);
         return view('event-page', compact('data'));
+    }
+
+    public static function getCathegories(){
+        $data = DB::table('notes')->select('cathegory')->distinct()->get();
+        $arrayData = [];
+        foreach ($data as $d) {
+            echo $d->cathegory.":".'null'.',';
+        }
     }
 
     public function update(Request $req, $id){

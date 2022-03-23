@@ -58,7 +58,7 @@
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">textsms</i>
-                        <input type="text" id="autocomplete-input" class="autocomplete" name="cathegory"
+                        <input type="text" id="autocomplete-input" class="autocomplete" autocomplete="off" name="cathegory"
                             value="{{ $data['cathegory'] }}">
                         <label for="autocomplete-input">Cathegory</label>
                     </div>
@@ -84,6 +84,14 @@
         $(document).ready(function() {
             $('textarea#textarea1').val("{{ $data['body'] }}");
             $('textarea#textarea1').characterCounter();
+        });
+
+        $(document).ready(function() {
+            $('input.autocomplete').autocomplete({
+                data: {
+                    {{App\Http\Controllers\NotesController::getCathegories()}}
+                }
+            });
         });
 
         //color selector
