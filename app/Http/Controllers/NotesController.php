@@ -15,6 +15,12 @@ class NotesController extends Controller
 
     public function create(Request $req){
         $data = $req->all();
+        // foreach ($data as $key => $value) {
+        //     echo $key;
+        //     echo "-";
+        //     echo $value;
+        //     echo "<br>";
+        // }
         $result = Note::create($data);
         return redirect()->route('notes.index');
     }
