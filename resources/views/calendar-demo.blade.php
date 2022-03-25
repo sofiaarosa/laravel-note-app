@@ -27,7 +27,7 @@
     @section('body')
         @include('materialize.layout.navbar')
         <div class="flex-center">
-            <div class="half-width">
+            <div class="">
                 <livewire:notes-calendar
                 before-calendar-view="calendar.calendar-header"
                 event-view="calendar.event-view"
