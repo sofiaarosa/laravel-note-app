@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LiveWire Calendar Demo</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('materialize/starter-template/css/style.css') }}">
     <style>
         .flex-center {
             width: 100%;
@@ -26,17 +25,16 @@
 <body>
     @section('body')
         @include('materialize.layout.navbar')
-        <div class="flex-center">
-            <div class="">
-                <livewire:notes-calendar
-                before-calendar-view="calendar.calendar-header"
-                event-view="calendar.event-view"
-                />
-            </div>
-        </div>
+        {{-- <livewire:notes-calendar calendar-view="calendar.calendar-view" before-calendar-view="calendar.calendar-header"
+            event-view="calendar.event-view" /> --}}
+        <livewire:notes-calendar {{-- calendar-view="calendar.calendar-view" --}} before-calendar-view="calendar.calendar-header"
+            event-view="calendar.event-view" />
+
+
+
         <div class="fixed-action-btn">
             <a class="btn-floating waves-effect waves-light right btn-large orange" href="{{ route('notes.add') }}"><i
-                class="material-icons">add</i></a>
+                    class="material-icons">add</i></a>
         </div>
         @livewireScripts
         @livewireCalendarScripts
